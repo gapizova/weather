@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     'jest/globals': true,
   },
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['airbnb-base', 'plugin:css/recommended', 'prettier'],
 
   overrides: [
     {
@@ -21,7 +21,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['jest'],
+  plugins: ['jest', 'css', 'html'],
   rules: {
     'max-len': [
       'error',

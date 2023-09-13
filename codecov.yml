@@ -6,4 +6,4 @@ coverage:
         threshold: 0.03%
         base: auto
 comment:
-  layout: "newheader, diff, files, newfooter"
+  layout: 'newheader, diff, files, newfooter'
