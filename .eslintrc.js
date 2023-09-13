@@ -41,5 +41,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'no-return-await': 'off',
+    'no-param-reassign': 'off',
   },
 };
