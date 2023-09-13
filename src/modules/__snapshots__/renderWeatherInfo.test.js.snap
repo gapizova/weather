@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing function renderWeatherInfo should render weather information correctly 1`] = `
+"
+    <h2>London</h2>
+    <p class="text-weather">Cloudy - Overcast clouds</p>
+    <img class="icon-weather" src="https://openweathermap.org/img/wn/04d@2x.png">
+    <p class="text-temp">Температура: 15 °C</p>
+    <img class="map-weather" src="https://static-maps.yandex.ru/v1?apikey=4f68df8e-cab0-4360-8ebb-d6a2b6c2248c&amp;l=map&amp;ll=0,0&amp;z=10" alt="Yandex map">
+  "
+`;

@@ -1,3 +1,7 @@
+/**
+ * Preparation of the application interface
+ * @param wrapperEl - an element is passed in which all components will be paint
+ */
 export function renderWeatherApp(wrapperEl) {
   wrapperEl.innerHTML = `
     <h1>Прогноз погоды</h1>
