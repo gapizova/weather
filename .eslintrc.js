@@ -29,7 +29,7 @@ module.exports = {
         ignoreComments: true,
       },
       {
-        code: 100,
+        code: 130,
       },
     ],
     'import/prefer-default-export': 'off',
@@ -40,5 +40,6 @@ module.exports = {
     'jest/valid-expect': 'error',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'no-return-await': 'off',
   },
 };
