@@ -1,4 +1,5 @@
-import 'src/style.css';
-import { runApp } from './runApp.js';
+import './styles/style.css';
+
+import { runApp } from './runApp';
 
 runApp(document.getElementById('app'));

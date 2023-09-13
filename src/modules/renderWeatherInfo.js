@@ -1,7 +1,7 @@
 const YANDEX_API_KEY = '4f68df8e-cab0-4360-8ebb-d6a2b6c2248c';
 
 /**
- *
+ * Displays weather information on the page
  * @param el - an element is passed in which all components will be paint
  * @param data - weather data received in the module getWeather
  */
