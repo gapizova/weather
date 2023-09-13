@@ -4,6 +4,10 @@ import { getCurrentCityName } from './modules/getCurrentCityName';
 import { getWeather } from './modules/getWeather';
 import { renderWeatherInfo } from './modules/renderWeatherInfo';
 
+/**
+ * Combining all functions in a single file for collaboration
+ * @param el - an element is passed in which all components will be paint
+ */
 export async function runApp(el) {
   renderWeatherApp(el);
 
@@ -13,6 +17,11 @@ export async function runApp(el) {
   const historyWrapper = document.querySelector('.history');
   const recentQueries = JSON.parse(localStorage.getItem('recentQueries')) || [];
 
+  /**
+   * Checks the number of elements in the array in the localStorage, if there are 10,
+   * then the first one is deleted and the value from input is added
+   * @param query - The value entered in the input
+   */
   function addQuery(query) {
     if (recentQueries.length > 10) {
       recentQueries.shift();
@@ -24,12 +33,16 @@ export async function runApp(el) {
 
   renderQueryHistory(historyWrapper, recentQueries);
 
-  async function finallyRenderWheather(cityName) {
+  /**
+   * The function calls function renderWeatherInfo and getWeather to display weather information
+   * @param cityName - currrent city name or city name in history or input value
+   */
+  async function finallyRenderWeather(cityName) {
     try {
       const weatherData = await getWeather(cityName);
       renderWeatherInfo(infoWrapper, weatherData);
-    } catch (finallyRenderWheatherError) {
-      console.error({ finallyRenderWheatherError });
+    } catch (finallyRenderWeatherError) {
+      console.error({ finallyRenderWeatherError });
       infoWrapper.innerHTML = 'Возможно введено неверное название города';
     }
   }
@@ -39,7 +52,7 @@ export async function runApp(el) {
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
 
-    finallyRenderWheather(input.value);
+    finallyRenderWeather(input.value);
     addQuery(input.value);
     renderQueryHistory(historyWrapper, recentQueries);
     input.value = '';
@@ -49,11 +62,11 @@ export async function runApp(el) {
     link.addEventListener('click', async (ev) => {
       ev.preventDefault();
       const cityName = link.innerText;
-      finallyRenderWheather(cityName);
+      finallyRenderWeather(cityName);
     });
   });
 
   const currentLocationName = await getCurrentCityName();
 
-  finallyRenderWheather(currentLocationName);
+  finallyRenderWeather(currentLocationName);
 }
