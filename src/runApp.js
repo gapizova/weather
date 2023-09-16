@@ -1,15 +1,15 @@
-import { renderWeatherApp } from './modules/renderWeatherApp';
-import { renderQueryHistory } from './modules/renderQueryHistory';
+import { displayWeatherApp } from './modules/displayWeatherApp';
+import { displayQueryHistory } from './modules/displayQueryHistory';
 import { getCurrentCityName } from './modules/getCurrentCityName';
 import { getWeather } from './modules/getWeather';
-import { renderWeatherInfo } from './modules/renderWeatherInfo';
+import { displayWeatherInfo } from './modules/displayWeatherInfo';
 
 /**
  * Combining all functions in a single file for collaboration
  * @param el - an element is passed in which all components will be paint
  */
 export async function runApp(el) {
-  renderWeatherApp(el);
+  displayWeatherApp(el);
 
   const input = document.querySelector('.input-form');
   const form = document.querySelector('form');
@@ -31,16 +31,16 @@ export async function runApp(el) {
     localStorage.setItem('recentQueries', JSON.stringify(recentQueries));
   }
 
-  renderQueryHistory(historyWrapper, recentQueries);
+  displayQueryHistory(historyWrapper, recentQueries);
 
   /**
-   * The function calls function renderWeatherInfo and getWeather to display weather information
+   * The function calls function displayWeatherInfo and getWeather to display weather information
    * @param cityName - currrent city name or city name in history or input value
    */
   async function finallyRenderWeather(cityName) {
     try {
       const weatherData = await getWeather(cityName);
-      renderWeatherInfo(infoWrapper, weatherData);
+      displayWeatherInfo(infoWrapper, weatherData);
     } catch (finallyRenderWeatherError) {
       console.error({ finallyRenderWeatherError });
       infoWrapper.innerHTML = 'Возможно введено неверное название города';
@@ -54,7 +54,7 @@ export async function runApp(el) {
 
     finallyRenderWeather(input.value);
     addQuery(input.value);
-    renderQueryHistory(historyWrapper, recentQueries);
+    displayQueryHistory(historyWrapper, recentQueries);
     input.value = '';
   });
 

@@ -1,6 +1,6 @@
-import { renderWeatherInfo } from './renderWeatherInfo.js';
+import { displayWeatherInfo } from './displayWeatherInfo.js';
 
-describe('testing function renderWeatherInfo', () => {
+describe('testing function displayWeatherInfo', () => {
   let el;
 
   beforeEach(() => {
@@ -26,7 +26,7 @@ describe('testing function renderWeatherInfo', () => {
       },
     };
 
-    renderWeatherInfo(el, data);
+    displayWeatherInfo(el, data);
 
     expect(el.innerHTML).toMatchSnapshot();
   });
@@ -50,7 +50,7 @@ describe('testing function renderWeatherInfo', () => {
       },
     };
 
-    renderWeatherInfo(el, data);
+    displayWeatherInfo(el, data);
 
     const iconImage = el.querySelector('.icon-weather');
     expect(iconImage.src).toContain(data.weather[0].icon);
@@ -77,7 +77,7 @@ describe('testing function renderWeatherInfo', () => {
       },
     };
 
-    renderWeatherInfo(el, data);
+    displayWeatherInfo(el, data);
 
     const expectedUrl =
       `https://static-maps.yandex.ru/v1?apikey=${YANDEX_API_KEY}&l=map&ll=` +

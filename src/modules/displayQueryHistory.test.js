@@ -1,6 +1,6 @@
-import { renderQueryHistory } from './renderQueryHistory.js';
+import { displayQueryHistory } from './displayQueryHistory.js';
 
-describe('testing function renderQueryHistory', () => {
+describe('testing function displayQueryHistory', () => {
   let el;
   let arrQuery;
   beforeEach(() => {
@@ -9,7 +9,7 @@ describe('testing function renderQueryHistory', () => {
   });
 
   it('should render element', () => {
-    renderQueryHistory(el, arrQuery);
+    displayQueryHistory(el, arrQuery);
     expect(el.querySelector('h2')).toBeTruthy();
     expect(el.querySelectorAll('.link')).toHaveLength(5);
     expect(el.querySelectorAll('.link')[0].innerText).toBe('1');

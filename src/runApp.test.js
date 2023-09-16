@@ -1,15 +1,15 @@
 import { runApp } from './runApp';
-import { renderWeatherApp } from './modules/renderWeatherApp';
-import { renderQueryHistory } from './modules/renderQueryHistory';
+import { displayWeatherApp } from './modules/displayWeatherApp';
+import { displayQueryHistory } from './modules/displayQueryHistory';
 import { getCurrentCityName } from './modules/getCurrentCityName';
 import { getWeather } from './modules/getWeather';
-import { renderWeatherInfo } from './modules/renderWeatherInfo';
+import { displayWeatherInfo } from './modules/displayWeatherInfo';
 
-jest.mock('./modules/renderWeatherApp');
-jest.mock('./modules/renderQueryHistory');
+jest.mock('./modules/displayWeatherApp');
+jest.mock('./modules/displayQueryHistory');
 jest.mock('./modules/getCurrentCityName');
 jest.mock('./modules/getWeather');
-jest.mock('./modules/renderWeatherInfo');
+jest.mock('./modules/displayWeatherInfo');
 
 describe('testing function runApp', () => {
   let el;
@@ -39,11 +39,11 @@ describe('testing function runApp', () => {
     el.appendChild(historyWrapper);
     document.body.appendChild(el);
 
-    renderWeatherApp.mockClear();
-    renderQueryHistory.mockClear();
+    displayWeatherApp.mockClear();
+    displayQueryHistory.mockClear();
     getCurrentCityName.mockClear();
     getWeather.mockClear();
-    renderWeatherInfo.mockClear();
+    displayWeatherInfo.mockClear();
   });
 
   afterEach(() => {
@@ -53,7 +53,7 @@ describe('testing function runApp', () => {
 
   it('should renders weather app', async () => {
     await runApp(el);
-    expect(renderWeatherApp).toHaveBeenCalledWith(el);
+    expect(displayWeatherApp).toHaveBeenCalledWith(el);
     expect(el.querySelector('.input-form')).toBeTruthy();
     expect(el.querySelector('form')).toBeTruthy();
     expect(el.querySelector('.info')).toBeTruthy();
@@ -76,6 +76,6 @@ describe('testing function runApp', () => {
     const submitEvent = new Event('submit');
     form.dispatchEvent(submitEvent);
 
-    expect(renderWeatherInfo).toHaveBeenCalled();
+    expect(displayWeatherInfo).toHaveBeenCalled();
   });
 });

@@ -3,7 +3,8 @@
  * @param el - an element is passed in which 10 lasts query will be paint
  * @param arrLocalStorage - 10 lasts query in localStorage
  */
-export function renderQueryHistory(el, arrLocalStorage) {
+export function displayQueryHistory(el, arrLocalStorage) {
+  // Added to section "history"
   el.innerHTML = `
     <h2>История запросов</h2>
   `;

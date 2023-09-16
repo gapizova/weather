@@ -1,10 +1,10 @@
-import { renderWeatherApp } from './renderWeatherApp.js';
+import { displayWeatherApp } from './displayWeatherApp.js';
 
-describe('testing function renderWeatherApp', () => {
+describe('testing function displayWeatherApp', () => {
   let el;
   beforeEach(() => {
     el = document.createElement('div');
-    renderWeatherApp(el);
+    displayWeatherApp(el);
   });
 
   it('should that all the elements have been paint', () => {
