@@ -42,5 +42,6 @@ module.exports = {
     'import/extensions': 'off',
     'no-return-await': 'off',
     'no-param-reassign': 'off',
+    'no-console': 'off',
   },
 };
