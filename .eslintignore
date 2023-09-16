@@ -1,3 +1,4 @@
 .github
 codecov.yml
-jest.config.js!/coverage/
+jest.config.js
+/coverage
