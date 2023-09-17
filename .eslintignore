@@ -1,8 +1,0 @@
-.github
-codecov.yml
-jest.config.js
-/coverage/
-/dist
-/prod
-webpack.config.js
-webpack.config.prod.js
