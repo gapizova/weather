@@ -12,14 +12,14 @@ export function displayWeatherInfo(el, data) {
   // Added to section "info"
   el.innerHTML = `
     <h2>${data.name}</h2>
-    <p>${dataToday.toLocaleDateString('ru-RU')}</p>
+    <p class="date">${dataToday.toLocaleDateString('ru-RU')}</p>
     <p class="text-weather">${data.weather[0].main}<br>${
       data.weather[0].description
     }</p>
-    <img class="icon-weather" src="https://openweathermap.org/img/wn/${
+    <div class="box-image"><img class="icon-weather" src="https://openweathermap.org/img/wn/${
       data.weather[0].icon
-    }@2x.png" alt="Icon weather"></img>
-    <p class="text-temp">Температура: ${data.main.temp} °C</p>
-    <img class="map-weather" src="${mapUrl}" alt="Yandex map"></img>
+    }@2x.png" alt="Icon weather"></img></div>
+    <p class="text-temp">${data.main.temp} °C</p>
+    <div class="box-image"><img class="map-weather" src="${mapUrl}" alt="Yandex map"></img></div>
   `;
 }
