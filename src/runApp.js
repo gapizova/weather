@@ -26,12 +26,11 @@ export async function runApp(el) {
     if (recentQueries.length > 10) {
       recentQueries.shift();
     }
-    recentQueries.push(query);
-
-    localStorage.setItem('recentQueries', JSON.stringify(recentQueries));
+    if (!recentQueries.includes(query)) {
+      recentQueries.push(query);
+      localStorage.setItem('recentQueries', JSON.stringify(recentQueries));
+    }
   }
-
-  displayQueryHistory(historyWrapper, recentQueries);
 
   /**
    * The function calls function displayWeatherInfo and getWeather to display weather information
@@ -41,32 +40,29 @@ export async function runApp(el) {
     try {
       const weatherData = await getWeather(cityName);
       displayWeatherInfo(infoWrapper, weatherData);
+      addQuery(cityName);
+      displayQueryHistory(historyWrapper, recentQueries);
+      const links = document.querySelectorAll('a');
+      links.forEach((link) => {
+        link.addEventListener('click', async (ev) => {
+          ev.preventDefault();
+          const cityNameAtHistory = link.innerText;
+          await finallyRenderWeather(cityNameAtHistory);
+        });
+      });
     } catch (finallyRenderWeatherError) {
       console.error({ finallyRenderWeatherError });
       infoWrapper.innerHTML = 'Возможно введено неверное название города';
     }
   }
 
-  const links = document.querySelectorAll('a');
-
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
-
-    finallyRenderWeather(input.value);
-    addQuery(input.value);
-    displayQueryHistory(historyWrapper, recentQueries);
+    await finallyRenderWeather(input.value);
     input.value = '';
-  });
-
-  links.forEach((link) => {
-    link.addEventListener('click', async (ev) => {
-      ev.preventDefault();
-      const cityName = link.innerText;
-      finallyRenderWeather(cityName);
-    });
   });
 
   const currentLocationName = await getCurrentCityName();
 
-  finallyRenderWeather(currentLocationName);
+  await finallyRenderWeather(currentLocationName);
 }

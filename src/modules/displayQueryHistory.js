@@ -9,9 +9,9 @@ export function displayQueryHistory(el, arrLocalStorage) {
     <h2>История запросов</h2>
   `;
 
-  arrLocalStorage.forEach((query) => {
+  arrLocalStorage.forEach((itemQuery) => {
     const link = document.createElement('a');
-    link.innerText = query;
+    link.innerText = itemQuery;
     link.setAttribute('href', '#');
     link.setAttribute('class', 'link');
 
