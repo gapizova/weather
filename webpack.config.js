@@ -1,9 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const webpack = require('webpack');
+require('dotenv').config();
 
 module.exports = {
-  mode: 'development',
   entry: {
     main: path.resolve(__dirname, './src/index.js'),
   },
@@ -16,6 +17,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'), // шаблон
       filename: 'index.html', // название выходного файла
+    }),
+    new webpack.DefinePlugin({
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+      'process.env.YANDEX_API_KEY': JSON.stringify(process.env.YANDEX_API_KEY),
     }),
     new BrowserSyncPlugin(
       {

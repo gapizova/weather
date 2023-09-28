@@ -1,4 +1,4 @@
-import { getWeather } from './getWeather.js';
+import { getWeather } from './getWeather';
 
 describe('testing function getWeather', () => {
   beforeEach(() => {

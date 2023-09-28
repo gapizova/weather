@@ -1,12 +1,12 @@
-const YANDEX_API_KEY = '4f68df8e-cab0-4360-8ebb-d6a2b6c2248c';
-
 /**
  * Displays weather information on the page
  * @param el - an element is passed in which all components will be paint
  * @param data - weather data received in the module getWeather
  */
 export function displayWeatherInfo(el, data) {
-  const mapUrl = `https://static-maps.yandex.ru/v1?apikey=${YANDEX_API_KEY}&l=map&ll=${data.coord.lon},${data.coord.lat}&z=10`;
+  const mapUrl =
+    `https://static-maps.yandex.ru/v1?apikey=${process.env.YANDEX_API_KEY}&l=map&ll=` +
+    `${data.coord.lon},${data.coord.lat}&z=10`;
   const dataToday = new Date();
 
   // Added to section "info"
