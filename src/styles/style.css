@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 1em auto;
+}
+
+#app {
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background: rgb(225 174 238);
+  background: radial-gradient(
+    circle,
+    rgb(225 174 238 / 100%) 0%,
+    rgb(148 187 233 / 100%) 100%
+  );
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+h1 {
+  padding: 1em 1em 2em;
+  text-align: center;
+  flex-basis: 100%;
+  color: #fff;
+  font-size: 2.312rem;
+  font-weight: 700;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  gap: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.input-form {
+  display: block;
+  min-width: 250px;
+  width: 20%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.input-form:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #bdbdbd;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(158 158 158 / 25%);
+}
+
+.input-form::placeholder {
+  color: #212529;
+  opacity: 0.4;
+}
+
+.button-form {
+  display: inline-block;
+  width: 10%;
+  min-width: 100px;
+  font-family: inherit;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #212529;
+  border: 1px solid #bdbdbd;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.button-form:hover {
+  background-color: #bdbdbd;
+}
+
+.info {
+  flex-basis: 48%;
+}
+
+.info h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1em 0 0;
+}
+
+.date {
+  margin: 0.5em 0 0;
+  color: #fff;
+  font-size: 1.275rem;
+  font-weight: 400;
+}
+
+.text-weather {
+  margin: 1em 0 0;
+  color: #fff;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.text-temp {
+  margin: 0.5em 0 0;
+  color: #fff;
+  font-size: 2.312rem;
+  font-weight: 700;
+}
+
+.box-image {
+  margin: 1em 0;
+  width: 100%;
+  object-fit: contain;
+}
+
+.map-weather {
+  border: 2px solid #bdbdbd;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 0.2rem rgb(158 158 158 / 25%);
+}
+
+.container-history {
+  margin: 2em 0 0;
+  padding: 1em;
+}
+
+.history {
+  order: 1;
+  flex-basis: 48%;
+  align-self: stretch;
+  border: 2px solid #bdbdbd;
+  border-radius: 0.5rem;
+  background-color: #222831;
+}
+
+.history h2 {
+  margin: 1em 0;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.text-link {
+  margin: 0.5em;
+}
+
+.text-link a {
+  font-size: 1.375rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.text-link a:hover {
+  color: #e1aeee;
+}
