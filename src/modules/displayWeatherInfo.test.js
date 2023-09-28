@@ -57,6 +57,7 @@ describe('testing function displayWeatherInfo', () => {
   });
 
   it('should set the correct src attribute for the map image', () => {
+    const YANDEX_API_KEY = '4f68df8e-cab0-4360-8ebb-d6a2b6c2248c';
     const data = {
       name: 'London',
       weather: [
@@ -78,7 +79,7 @@ describe('testing function displayWeatherInfo', () => {
     displayWeatherInfo(el, data);
 
     const expectedUrl =
-      `https://static-maps.yandex.ru/v1?apikey=${process.env.YANDEX_API_KEY}&l=map&ll=` +
+      `https://static-maps.yandex.ru/v1?apikey=${YANDEX_API_KEY}&l=map&ll=` +
       `${data.coord.lon},${data.coord.lat}&z=10`;
 
     const mapImage = el.querySelector('.map-weather');
