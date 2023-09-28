@@ -3,7 +3,7 @@
 exports[`testing function displayWeatherInfo should render weather information correctly 1`] = `
 "
     <h2>London</h2>
-    <p class="date">28.09.2023</p>
+    <p class="date">29.09.2023</p>
     <p class="text-weather">Cloudy<br>Overcast clouds</p>
     <div class="box-image"><img class="icon-weather" src="https://openweathermap.org/img/wn/04d@2x.png" alt="Icon weather"></div>
     <p class="text-temp">15 °C</p>
